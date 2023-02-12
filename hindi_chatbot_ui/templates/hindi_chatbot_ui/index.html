@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="{% static 'hindi_chatbot_ui/styles.css' %}">
     <title>हिंदी चैटबॉट</title>
+    <script>
+        function emotion_alert()
+        {
+
+        if (document.getElementById("message").value == "समाप्त" ) {
+            alert("the top emotion throughout the conversation was: {{alert}}");
+            
+        }
+        }
+    </script>
 </head>
 
 <body>
@@ -21,7 +31,7 @@
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="msg">
-                    <p>नमस्ते! आप कैसे हैं?</p>
+                    <p>कृपया अपनी समस्या बताएं। </p>
                 </div>
             </div>
 
@@ -48,14 +58,15 @@
             {% csrf_token %}
         <div class="typing-area">
                 <div class="input-field">
-                    <input type="text" placeholder="अपना उत्तर टाइप करें" required name="message">
-                    <button>भेजें</button>
+                    <input type="text" id="message" placeholder="अपना उत्तर टाइप करें" required name="message">
+                    <button onclick="emotion_alert()">भेजें</button>
                 </div>
             </div>
         </form>
     </div>
-    {{ alert }}
+   
 </body>
+
 </html>
 
 
